@@ -1,6 +1,6 @@
 <template>
   <nav v-if="user">
-    <div>
+    <div class="namearea">
       <p>{{user.displayName}}</p>
       <p class="email">{{user.email}}</p>
     </div>
@@ -37,11 +37,19 @@ nav {
   align-items: center;
 }
 
+.namearea{
+    padding: 15px 10px;
+    background: rgb(39, 41, 46);
+    border-radius: 14px;
+    font-family: 'Lato', sans-serif;
+}
+
 nav p {
   margin: 2px auto;
   font-size: 20px;
   font-weight: bold;
   color: rgb(190, 190, 191);
+  font-style: inherit;
 }
 
 nav p.email {
