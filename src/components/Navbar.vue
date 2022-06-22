@@ -15,7 +15,6 @@ export default {
   setup() {
     const { logout, error } = useLogout()
     const { user } = getUser()
-
     const LogoutClick = async () => {
       await logout()
       if (!error.value) {
@@ -60,5 +59,8 @@ nav p.email {
 
 button {
   cursor: pointer;
+  font-size: 13px;
+  border-radius: 10px;
+  color:rgb(65, 65, 65);
 }
 </style>

@@ -2,9 +2,35 @@
   <div class="chat-window">
     <div v-if="error">{{ error }}</div>
     <div v-if="documents" class="messages" ref="messages">
-      <div v-for="doc in formattedDocuments" :key="doc.id" class="single">
-        <span class="created-at">{{ doc.createdAt }}</span>
-        <span class="name">{{ doc.name }} :</span>
+      <div
+        v-for="doc in formattedDocuments"
+        :key="doc.id"
+        class="single"
+        :style="[
+          user.displayName === doc.name
+            ? {
+                background: 'rgb(56, 122, 255)',
+                'border-radius': '6px 6px 25px 6px',
+                float: 'right',
+                'text-align': 'right',
+                padding: '5px 13px',
+              }
+            : { color: 'rgb(221, 221, 221)' },
+        ]"
+      >
+        <span
+          :style="[
+            user.displayName === doc.name
+              ? {
+                  color: 'rgb(221, 221, 221,0.5)',
+                }
+              : { color: 'rgb(87, 88, 88)' },
+          ]"
+          class="created-at"
+          >{{ doc.createdAt }}</span
+        >
+
+        <span v-if="user.displayName !== doc.name" class="name">{{ doc.name }} :</span>
         <span class="message">{{ doc.message }}</span>
       </div>
     </div>
@@ -14,6 +40,8 @@
 import getCollection from '../composables/getCollection'
 import { formatDistanceToNow } from 'date-fns'
 import { computed, onUpdated, ref } from 'vue'
+import getUser from '../composables/getUser'
+import { doc } from '@firebase/firestore'
 
 export default {
   setup() {
@@ -28,13 +56,14 @@ export default {
       }
     })
 
-    const messages = ref(null)
+    const { user } = getUser()
 
+    const messages = ref(null)
     onUpdated(() => {
       messages.value.scrollTop = messages.value.scrollHeight
     })
 
-    return { error, documents, formattedDocuments, messages }
+    return { error, documents, formattedDocuments, messages, user }
   },
 }
 </script>
@@ -52,12 +81,13 @@ export default {
 .single {
   margin: 18px 0;
   background: rgb(39, 41, 46);
-  padding: 5px 20px;
+  padding: 5px 16px;
   max-width: fit-content;
-  border-radius: 6px 25px 25px 25px;
+  border-radius: 6px 6px 6px 25px;
   font-style: inherit;
   font-size: 15px;
   font-family: 'Lato', sans-serif;
+  clear: both;
 }
 
 .created-at {
