@@ -2,6 +2,7 @@
   <form>
     <textarea
       placeholder="Your Message ..."
+      required
       v-model="message"
       @keypress.enter.prevent="handleMessage"
     ></textarea>
@@ -10,7 +11,7 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import getUser from '../composables/getUser'
 import useCollection from '../composables/useCollection'
 import { timestamp } from '../firebase/config'
@@ -30,12 +31,16 @@ export default {
         createdAt: timestamp(),
       }
 
-      await addDoc(chat)
-      if (!error.value) {
-        message.value = ''
+      if (message.value !== '') {
+        await addDoc(chat)
+        if (!error.value) {
+          message.value = ''
+        }
+      }else if (message.value === ''){
+        return error.value = 'Enter Message'
       }
     }
-    return { message, handleMessage,error }
+    return { message, handleMessage, error }
   },
 }
 </script>

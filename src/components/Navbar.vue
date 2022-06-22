@@ -18,7 +18,6 @@ export default {
     const LogoutClick = async () => {
       await logout()
       if (!error.value) {
-        console.log('user logged out')
       }
     }
 

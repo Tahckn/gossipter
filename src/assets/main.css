@@ -11,6 +11,7 @@ body {
   background: rgb(24, 26, 27);
 }
 .error {
+  margin : 5px auto;
   color: rgb(240, 58, 95);
   font-size: 14px;
 }
