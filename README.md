@@ -27,3 +27,5 @@ npm run dev
 ```sh
 npm run build
 ```
+
+To see live site = https://gosipper.netlify.app/
