@@ -36,7 +36,7 @@
         <span
           :style="[
             doc.name === 'Tahckn'
-              ? { color: 'rgb(254, 216, 0)', 'font-weight': 'bold' }
+              ? { color: 'rgb(255, 202, 40)', 'font-weight': 'bold' }
               : {},
           ]"
           class="message"
