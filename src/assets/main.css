@@ -1,6 +1,7 @@
 body {
   background: rgb(28, 30, 31);
   color: rgb(221, 221, 221);
+  overflow: hidden;
 }
 .container {
   width: 90%;

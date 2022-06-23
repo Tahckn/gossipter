@@ -1,6 +1,7 @@
 <template>
   <form>
     <textarea
+      maxlength="650"
       placeholder="Your Message ..."
       required
       v-model="message"
@@ -23,7 +24,6 @@ export default {
     const { addDoc, error } = useCollection('messages')
 
     const message = ref('')
-    
 
     const handleMessage = async () => {
       const chat = {
@@ -54,6 +54,9 @@ form {
 textarea {
   width: 100%;
   max-width: 100%;
+  min-width: 100%;
+  min-height: 73px;
+  max-height: 148px;
   margin-bottom: 6px;
   padding: 10px;
   box-sizing: border-box;
