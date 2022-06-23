@@ -1,6 +1,6 @@
 # Gossipter
 
-This template should help get you started developing with Vue 3 in Vite.
+Gosipper is a chatting app.
 
 ## Recommended IDE Setup
 
@@ -27,3 +27,6 @@ npm run dev
 ```sh
 npm run build
 ```
+![GitHub last commit](https://img.shields.io/github/last-commit/Tahckn/Gossipter)
+
+To see live site = https://gosipper.netlify.app/
