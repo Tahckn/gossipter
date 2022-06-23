@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { ref, computed } from 'vue'
+import { ref} from 'vue'
 import getUser from '../composables/getUser'
 import useCollection from '../composables/useCollection'
 import { timestamp } from '../firebase/config'
@@ -23,6 +23,7 @@ export default {
     const { addDoc, error } = useCollection('messages')
 
     const message = ref('')
+    
 
     const handleMessage = async () => {
       const chat = {
@@ -31,7 +32,7 @@ export default {
         createdAt: timestamp(),
       }
 
-      if (message.value !== '') {
+      if (message.value.trim() !== '') {
         await addDoc(chat)
         if (!error.value) {
           message.value = ''

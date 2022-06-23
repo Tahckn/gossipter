@@ -30,8 +30,18 @@
           >{{ doc.createdAt }}</span
         >
 
-        <span v-if="user.displayName !== doc.name" class="name">{{ doc.name }} :</span>
-        <span class="message">{{ doc.message }}</span>
+        <span v-if="user.displayName !== doc.name" class="name"
+          >{{ doc.name }} :</span
+        >
+        <span
+          :style="[
+            doc.name === 'Tahckn'
+              ? { color: 'rgb(254, 216, 0)', 'font-weight': 'bold' }
+              : {},
+          ]"
+          class="message"
+          >{{ doc.message }}</span
+        >
       </div>
     </div>
   </div>
