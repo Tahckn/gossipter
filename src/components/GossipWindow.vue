@@ -1,6 +1,5 @@
 <template>
-  <div class="colors">
-  </div>
+  <div class="colors"></div>
   <div class="chat-window">
     <div v-if="error">{{ error }}</div>
     <div v-if="documents" class="messages" ref="messages">
@@ -29,15 +28,7 @@
         <span v-if="user.displayName !== doc.name" class="name"
           >{{ doc.name }} :</span
         >
-        <span
-          :style="[
-            doc.name === 'Tahckn'
-              ? { color: 'rgb(255, 202, 40)', 'font-weight': 'bold' }
-              : {},
-          ]"
-          class="message"
-          >{{ doc.message }}</span
-        >
+        <span class="message">{{ doc.message }}</span>
       </div>
     </div>
   </div>
