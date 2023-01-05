@@ -1,6 +1,7 @@
 # Gossipter
 
-Gosipper is a chatting app.
+Gosipper is a realtime chatting app.
+Authentication and data stored in Firebase
 
 ## Recommended IDE Setup
 
